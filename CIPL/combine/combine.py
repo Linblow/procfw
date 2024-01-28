@@ -41,7 +41,7 @@ def main():
 	fp.close()
 
 	if len(buf) < inputsize:
-		buf += '\0' * (inputsize - len(buf))
+		buf += bytes(chr(0), 'ascii') * (inputsize - len(buf))
 
 	assert(len(buf) == inputsize)
 

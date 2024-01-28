@@ -4,13 +4,13 @@ class FakeTime:
     def time(self):
         return 1225856967.109
 
-import os, gzip, StringIO
+import os, gzip, io
 
 gzip.time = FakeTime()
 
 def create_gzip(input, output):
 	f_in=open(input, 'rb')
-	temp=StringIO.StringIO()
+	temp=io.BytesIO()
 	f=gzip.GzipFile(fileobj=temp, mode='wb')
 	f.writelines(f_in)
 	f.close()
