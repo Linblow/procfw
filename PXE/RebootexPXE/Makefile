@@ -3,7 +3,7 @@ INCLUDES=-I $(PSPSDK)/include -I ../../Common
 
 all: a.bin
 
-CFLAGS=$(INCLUDES) -W -Wall -Os -G0 -fno-pic -fno-toplevel-reorder -mno-abicalls -w -S
+CFLAGS=$(INCLUDES) -W -Wall -Os -G0 -fno-pic -fno-toplevel-reorder -fno-builtin -mno-abicalls -w -S
 
 ifeq ($(CONFIG_635), 1)
 CFLAGS+=-DCONFIG_635=1

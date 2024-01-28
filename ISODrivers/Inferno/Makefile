@@ -13,8 +13,8 @@ OBJS += ../../Common/printk.o
 else
 endif
 
-LDFLAGS = -mno-crt0 -nostartfiles -L. -L ../../libs
-LIBS = -lpspsystemctrl_kernel -lpspsemaphore
+LDFLAGS = -nostartfiles -L. -L ../../libs
+LIBS = -lgcc -lpspsystemctrl_kernel -lpspsemaphore
 
 ifeq ($(CONFIG_620), 1)
 CFLAGS += -DCONFIG_620=1

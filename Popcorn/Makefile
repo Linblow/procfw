@@ -39,7 +39,7 @@ CFLAGS += -DCONFIG_661=1
 PSP_FW_VERSION = 661
 endif
 
-LDFLAGS = -mno-crt0 -nostartfiles -L. -L../libs
+LDFLAGS = -nostartfiles -L. -L../libs
 LIBS += -lpspmodulemgr_kernel -lpspsystemctrl_kernel -lpspkubridge
 LIBS += -lpspsemaphore
 

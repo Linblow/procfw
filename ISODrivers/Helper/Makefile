@@ -9,7 +9,7 @@ OBJS += ../../Common/printk.o
 else
 endif
 
-LDFLAGS = -mno-crt0 -nostartfiles -L. -L ../../libs
+LDFLAGS = -nostartfiles -L. -L ../../libs
 LIBS = -lpspsystemctrl_kernel -lpspkubridge -lpspreg_driver -lpsprtc -lpspumd_driver
 PSP_FW_VERSION=635
 #PRX_EXPORTS = exports.exp

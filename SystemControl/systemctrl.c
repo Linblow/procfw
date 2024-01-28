@@ -130,11 +130,11 @@ PspIoDrv *sctrlHENFindDriver(char *drvname)
 	pspSdkSetK1(k1);
 
 	if(psp_model == PSP_GO && p == NULL) {
-		if(0 == stricmp(drvname, "msstor")) {
+		if(0 == strcasecmp(drvname, "msstor")) {
 			return sctrlHENFindDriver("eflash0a0f");
 		}
 
-		if(0 == stricmp(drvname, "msstor0p")) {
+		if(0 == strcasecmp(drvname, "msstor0p")) {
 			return sctrlHENFindDriver("eflash0a0f1p");
 		}
 	}

@@ -9,9 +9,9 @@ PSP_EXPORT_VAR_HASH(module_info)
 PSP_EXPORT_END
 
 PSP_EXPORT_START(kpspident, 0, 0x4001)
-PSP_EXPORT_FUNC_HASH(sceSysconGetBaryonVersion)
-PSP_EXPORT_FUNC_HASH(sceSysconGetPommelVersion)
-PSP_EXPORT_FUNC_HASH(sceSysregGetTachyonVersion)
+PSP_EXPORT_FUNC_NID(_sceSysconGetBaryonVersion, 0x7EC5A957)
+PSP_EXPORT_FUNC_NID(_sceSysconGetPommelVersion, 0xE7E87741)
+PSP_EXPORT_FUNC_NID(_sceSysregGetTachyonVersion, 0xE2A5D1EE)
 PSP_EXPORT_FUNC_HASH(pspGetKirkVersion)
 PSP_EXPORT_FUNC_HASH(pspGetSpockVersion)
 PSP_EXPORT_END

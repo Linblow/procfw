@@ -115,7 +115,7 @@ static inline int is_pbp(const char *init_file)
 	if(p == NULL)
 		return 0;
 
-	if(0 != stricmp(p, ".PBP"))
+	if(0 != strcasecmp(p, ".PBP"))
 		return 0;
 
 	return 1;

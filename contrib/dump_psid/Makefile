@@ -9,7 +9,7 @@ PSP_FW_VERSION=620
 CFLAGS += -DDEBUG=1
 OBJS += ../../Common/printk.o ../../Common/utils.o
 
-LDFLAGS = -mno-crt0 -nostartfiles -L../../libs
+LDFLAGS = -nostartfiles -L../../libs
 LIBS += -lpspsystemctrl_kernel -lpspsemaphore
 
 BUILD_PRX=1

@@ -15,7 +15,7 @@ USE_KERNEL_LIBC=1
 USE_KERNEL_LIBS=1
 
 LIBDIR = ../lib
-LDFLAGS = -mno-crt0 -nostartfiles
+LDFLAGS = -nostartfiles
 LIBS = -lpspsemaphore -lpspmesgd_driver -lpspnwman_driver
 
 

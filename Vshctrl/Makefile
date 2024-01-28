@@ -54,7 +54,7 @@ USE_KERNEL_LIBC=1
 USE_KERNEL_LIBS=1
 
 LIBDIR = ../libs
-LDFLAGS = -mno-crt0 -nostartfiles
+LDFLAGS = -nostartfiles
 LIBS = -lpspsystemctrl_kernel -lpspusb -lpspusbdevice_driver
 
 PSPSDK=$(shell psp-config --pspsdk-path)

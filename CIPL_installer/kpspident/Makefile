@@ -12,7 +12,7 @@ BUILD_PRX = 1
 PRX_EXPORTS = exports.exp
 
 LIBDIR =
-LDFLAGS = -mno-crt0 -nostartfiles
+LDFLAGS = -nostartfiles
 LIBS =
 
 USE_KERNEL_LIBC = 1

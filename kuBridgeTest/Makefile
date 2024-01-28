@@ -4,7 +4,7 @@ OBJS = main.o
 CFLAGS = -Os -G0 -Wall -I. -I ../include
 PSP_FW_VERSION=620
 
-LDFLAGS = -mno-crt0 -nostartfiles -L. -L ../libs
+LDFLAGS = -nostartfiles -L. -L ../libs
 LIBS = -lpspumd -lpsppower -lpspkubridge -lpspsystemctrl_user -lpspdebug
 
 BUILD_PRX=1

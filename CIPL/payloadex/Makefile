@@ -1,7 +1,7 @@
 PSPDEV=$(shell psp-config --pspsdk-path)
 INCLUDES=-I $(PSPDEV)/include -I ../../Common
 
-CFLAGS=$(INCLUDES) -W -Wall -G0 -Os -fno-pic -mno-abicalls -w -S
+CFLAGS=$(INCLUDES) -W -Wall -G0 -Os -fno-pic -mno-abicalls -fno-builtin -w -S
 
 ifeq ($(PSP_MODEL),1)
 TARGET = nand_payloadex_02g

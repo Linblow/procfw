@@ -86,7 +86,7 @@ USE_KERNEL_LIBC=1
 USE_KERNEL_LIBS=1
 
 LIBDIR = ../libs
-LDFLAGS = -mno-crt0 -nostartfiles
+LDFLAGS = -nostartfiles
 LIBS = -lpspsemaphore ../CrossFW/cross_fw.a
 
 PSPSDK=$(shell psp-config --pspsdk-path)

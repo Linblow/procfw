@@ -28,7 +28,7 @@ CFLAGS += -DCONFIG_661=1
 PSP_FW_VERSION = 661
 endif
 
-LDFLAGS = -mno-crt0 -nostartfiles -L ../libs
+LDFLAGS = -nostartfiles -L ../libs
 LIBS += -lpspkubridge ../CrossFW/cross_fw.a
 
 BUILD_PRX=1

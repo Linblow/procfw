@@ -157,7 +157,7 @@ static int is_iso(SceIoDirent * dir)
 	//filename length check
 	if (ext > dir->d_name) {
 		//check extension
-		if (stricmp(ext, ".iso") == 0 || stricmp(ext, ".cso") == 0 || stricmp(ext, ".zso") == 0) {
+		if (strcasecmp(ext, ".iso") == 0 || strcasecmp(ext, ".cso") == 0 || strcasecmp(ext, ".zso") == 0) {
 			result = 1;
 		}
 	}
@@ -894,9 +894,9 @@ int vpbp_getstat(const char * file, SceIoStat * stat)
 	stat->st_mode = 0x21FF;
 	stat->st_attr = 0x20;
 	stat->st_size = vpbp->iso_total_size;
-	memcpy(&stat->st_ctime, &vpbp->ctime, sizeof(ScePspDateTime));
-	memcpy(&stat->st_mtime, &vpbp->ctime, sizeof(ScePspDateTime));
-	memcpy(&stat->st_atime, &vpbp->ctime, sizeof(ScePspDateTime));
+	memcpy(&stat->sce_st_ctime, &vpbp->ctime, sizeof(ScePspDateTime));
+	memcpy(&stat->sce_st_mtime, &vpbp->ctime, sizeof(ScePspDateTime));
+	memcpy(&stat->sce_st_atime, &vpbp->ctime, sizeof(ScePspDateTime));
 	unlock();
 
 	return ret;
@@ -1061,7 +1061,7 @@ int vpbp_loadexec(char * file, struct SceKernelLoadExecVSHParam * param)
 
 		ret = get_device_name(devicename, sizeof(devicename), vpbp->name);
 
-		if(ret == 0 && 0 == stricmp(devicename, "ef0:")) {
+		if(ret == 0 && 0 == strcasecmp(devicename, "ef0:")) {
 			apitype = 0x125;
 		} else {
 			apitype = 0x123;
@@ -1095,7 +1095,7 @@ SceUID vpbp_dopen(const char * dirname)
 	lock();
 	result = sceIoDopen(dirname);
 
-	if (result >= 0 && strlen(dirname) > 4 && 0 == stricmp(dirname+4, "/ISO")) {
+	if (result >= 0 && strlen(dirname) > 4 && 0 == strcasecmp(dirname+4, "/ISO")) {
 		load_cache();
 	}
 
@@ -1115,9 +1115,9 @@ static int add_fake_dirent(SceIoDirent *dir, int vpbp_idx)
 	dir->d_stat.st_mode = 0x11FF;
 	dir->d_stat.st_attr = 0x10;
 
-	memcpy(&dir->d_stat.st_ctime, &vpbp->ctime, sizeof(ScePspDateTime));
-	memcpy(&dir->d_stat.st_mtime, &vpbp->ctime, sizeof(ScePspDateTime));
-	memcpy(&dir->d_stat.st_atime, &vpbp->ctime, sizeof(ScePspDateTime));
+	memcpy(&dir->d_stat.sce_st_ctime, &vpbp->ctime, sizeof(ScePspDateTime));
+	memcpy(&dir->d_stat.sce_st_mtime, &vpbp->ctime, sizeof(ScePspDateTime));
+	memcpy(&dir->d_stat.sce_st_atime, &vpbp->ctime, sizeof(ScePspDateTime));
 
 	return 1;
 }
@@ -1164,8 +1164,8 @@ int vpbp_dread(SceUID fd, SceIoDirent * dir)
 		STRCAT_S(vpbp->name, entry->path + sizeof("xxx:/PSP/GAME") - 1);
 		STRCAT_S(vpbp->name, "/");
 		STRCAT_S(vpbp->name, dir->d_name);
-		memcpy(&vpbp->ctime, &dir->d_stat.st_ctime, sizeof(vpbp->ctime));
-		memcpy(&vpbp->mtime, &dir->d_stat.st_mtime, sizeof(vpbp->mtime));
+		memcpy(&vpbp->ctime, &dir->d_stat.sce_st_ctime, sizeof(vpbp->ctime));
+		memcpy(&vpbp->mtime, &dir->d_stat.sce_st_mtime, sizeof(vpbp->mtime));
 
 		ret = get_cache(vpbp->name, &vpbp->mtime, vpbp);
 
@@ -1195,7 +1195,7 @@ int vpbp_dclose(SceUID fd)
 	lock();
 	entry = dirent_search(fd);
 
-	if (entry != NULL && strlen(entry->path) > 4 && 0 == stricmp(entry->path+4, "/PSP/GAME")) {
+	if (entry != NULL && strlen(entry->path) > 4 && 0 == strcasecmp(entry->path+4, "/PSP/GAME")) {
 		save_cache();
 	}
 

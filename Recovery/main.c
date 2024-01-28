@@ -205,7 +205,7 @@ static int get_fontlist(FontList *list, char *path)
 		if(p == NULL)
 			p = dir.d_name;
 
-		if(0 == stricmp(p, ".bin") || 0 == stricmp(p, ".pf")) {
+		if(0 == strcasecmp(p, ".bin") || 0 == strcasecmp(p, ".pf")) {
 			sprintf(fullpath, "%s/%s", path, dir.d_name);
 			fontlist_add(list, fullpath);
 		}

@@ -24,7 +24,7 @@ USE_KERNEL_LIBS = 1
 
 INCDIR = ../../include
 
-LDFLAGS = -mno-crt0 -nostartfiles
+LDFLAGS = -nostartfiles
 LIBS = -lpsppower_driver -lpspsystemctrl_kernel -lpspmodulemgr_kernel
 LIBDIR = ../../libs
 
