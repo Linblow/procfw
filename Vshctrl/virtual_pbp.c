@@ -1044,8 +1044,8 @@ int vpbp_loadexec(char * file, struct SceKernelLoadExecVSHParam * param)
 	printk("%s: ISO %s, UMD mode %d\n", __func__, vpbp->name, config.umdmode);
 	
 	//reset and configure reboot parameter
-	memset(param, 0, sizeof(param));
-	param->size = sizeof(param);
+	memset(param, 0, sizeof(struct SceKernelLoadExecVSHParam));
+	param->size = sizeof(struct SceKernelLoadExecVSHParam);
 
 	if (has_prometheus_module(vpbp)) {
 		printk("%s: prometheus module detected, use EBOOT.OLD\n", __func__);
