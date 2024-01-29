@@ -24,7 +24,8 @@ typedef struct _PatchOffset {
 	u32 fw_version;
 	u32 sceMesgLedDecryptGame1[PSP_11000+1];
 	u32 sceMesgLedDecryptGame2[PSP_11000+1];
-	u32 mesgled_decrypt;
+	u32 mesgled_decrypt[PSP_11000+1];
+	// u32 mesgled_decrypt;
 	u32 LoadExecForUser_362A956B_fix;
 } PatchOffset;
 

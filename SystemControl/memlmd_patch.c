@@ -199,7 +199,8 @@ void patch_mesgled(SceModule* mod1)
 	u32 text_addr, offset, i;
    
 	text_addr = mod->text_addr;
-	mesgled_decrypt = (void*)(text_addr + g_offs->mesgled_patch.mesgled_decrypt);
+	mesgled_decrypt = (void*)(text_addr + g_offs->mesgled_patch.mesgled_decrypt[psp_model]);
+	// mesgled_decrypt = (void*)(text_addr + g_offs->mesgled_patch.mesgled_decrypt);
 
 	for(i=0; i<NELEMS(g_offs->mesgled_patch.mesg_decrypt_call[psp_model]); ++i) {
 		offset = g_offs->mesgled_patch.mesg_decrypt_call[psp_model][i];

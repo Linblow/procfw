@@ -96,7 +96,9 @@ PatchOffset g_661_offsets = {
 		.mesg_decrypt_call = {
 			/*0x457B0CF0  0xE71C010B  0xADF305F0  0x457B0AF0  0x380280F0 */
 			{ 0x00003160, 0x00003FD8, 0x00004DD8, 0x00002354, 0x00002BE0 }, // 01g
-			{ 0x000034F8, 0x00004548, 0x000047EC, 0x0000475C, 0x00001F64 }, // 02g
+			/* NOTE Linblow: these are the offsets for the test build of the reversed 02g module. */
+			{ 0x00003648, 0x00004810, 0x00004B34, 0x00004A8C, 0x00001FD8 }, // 02g RE module
+			// { 0x000034F8, 0x00004548, 0x000047EC, 0x0000475C, 0x00001F64 }, // 02g
 			{ 0x00003850, 0x00004A70, 0x00004D5C, 0x000038E0, 0x00001FAC }, // 03g
 			{ 0x00003850, 0x00004A70, 0x00004D5C, 0x000038E0, 0x00001FAC }, // 04g
 			{ 0x000024E4, 0x00004F44, 0x00002404, 0x00002694, 0x00002F1C }, // 05g
@@ -107,7 +109,21 @@ PatchOffset g_661_offsets = {
 			{ 0xDEADBEEF, 0xDEADBEEF, 0xDEADBEEF, 0xDEADBEEF, 0xDEADBEEF }, // 10g
 			{ 0x00003850, 0x00004A70, 0x00004D5C, 0x000038E0, 0x00001FAC }, // 11g
 		},
-		.mesgled_decrypt = 0x000000E0,
+		.mesgled_decrypt = {
+			0x000000E0, // 01g
+			0x000000C8, // 02g RE
+			// 0x000000E0, // 02g ori
+			0x000000E0, // 03g
+			0x000000E0, // 04g
+			0x000000E0, // 05g
+			0x000000E0, // 06g
+			0x000000E0, // 07g
+			0x000000E0, // 08g
+			0x000000E0, // 09g
+			0x000000E0, // unused
+			0x000000E0, // 11G
+		},
+		// .mesgled_decrypt = 0x000000E0,
 	},
 	.sysmem_patch = {
 		.sctrlKernelSetDevkitVersion = 0x0001191C,

@@ -259,7 +259,8 @@ void patch_sceMesgLed()
 
 	intr = MAKE_CALL(_mesgled_decrypt);
 	text_addr = mod->text_addr;
-	mesgled_decrypt = (void*)(text_addr + g_offs->mesgled_decrypt);
+	mesgled_decrypt = (void*)(text_addr + g_offs->mesgled_decrypt[psp_model]);
+	// mesgled_decrypt = (void*)(text_addr + g_offs->mesgled_decrypt);
 
 	if(g_offs->sceMesgLedDecryptGame1[psp_model] != 0xDEADBEEF &&
 			g_offs->sceMesgLedDecryptGame2[psp_model] != 0xDEADBEEF) {

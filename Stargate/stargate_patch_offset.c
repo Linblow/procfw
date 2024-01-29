@@ -33,7 +33,8 @@ PatchOffset g_661_offsets = {
 #endif
 	.sceMesgLedDecryptGame1 = {
 		0x00003160, // 01g
-		0x000034F8, // 02g
+		0x00003648, // 02g RE
+		// 0x000034F8, // 02g
 		0x00003804, // 03g
 		0x00003804, // 04g
 		0x00003B28, // 05g
@@ -46,7 +47,8 @@ PatchOffset g_661_offsets = {
 	},
 	.sceMesgLedDecryptGame2 = {
 		0x000033F8, // 01g
-		0x000037D8, // 02g
+		0x00003A44, // 02g RE
+		// 0x000037D8, // 02g
 		0x00003B78, // 03g
 		0x00003B78, // 04g
 		0x00003EE4, // 05g
@@ -57,7 +59,21 @@ PatchOffset g_661_offsets = {
 		0xDEADBEEF, // unused
 		0x00003B78, // 11G
 	},
-	.mesgled_decrypt = 0x000000E0,
+	.mesgled_decrypt = {
+		0x000000E0, // 01g
+		0x000000C8, // 02g RE
+		// 0x000000E0, // 02g ori
+		0x000000E0, // 03g
+		0x000000E0, // 04g
+		0x000000E0, // 05g
+		0x000000E0, // 06g
+		0x000000E0, // 07g
+		0x000000E0, // 08g
+		0x000000E0, // 09g
+		0x000000E0, // unused
+		0x000000E0, // 11G
+	},
+	// .mesgled_decrypt = 0x000000E0,
 	.LoadExecForUser_362A956B_fix = 0x000009B4,
 };
 #endif
