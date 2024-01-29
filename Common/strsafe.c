@@ -77,6 +77,18 @@ size_t strncpy_s(char *strDest, size_t numberOfElements, const char *strSource, 
 	return strnlen(strDest, numberOfElements);
 }
 
+static inline int _isupper(int c)
+{
+	return (unsigned)c-'A' < 26;
+}
+
+
+static inline int _tolower(int c)
+{
+	if (_isupper(c)) return c | 32;
+	return c;
+}
+
 int strncasecmp(const char *s1, const char *s2, size_t n)
 {
 	const unsigned char *p1 = (const unsigned char *) s1;
@@ -87,8 +99,8 @@ int strncasecmp(const char *s1, const char *s2, size_t n)
 		return 0;
 
 	do {
-		c1 = tolower(*p1);
-		c2 = tolower(*p2);
+		c1 = _tolower(*p1);
+		c2 = _tolower(*p2);
 
 		if (--n == 0 || c1 == '\0')
 			break;

@@ -184,11 +184,11 @@ static void menu_draw(struct Menu *menu)
 	total_page = (menu->submenu_size+MAX_MENU_NUMBER_PER_PAGE-1) / MAX_MENU_NUMBER_PER_PAGE;
 
 	if(total_page > 1) {
-		char buf[20];
+		char buf[32];
 		x = MAX_SCREEN_X - 15;
 		y = 4;
 
-		sprintf(buf, "%s %d/%d", g_messages[PAGE], (cur_page_start/MAX_MENU_NUMBER_PER_PAGE)+1, total_page);
+		snprintf(buf, sizeof(buf), "%s %d/%d", g_messages[PAGE], (cur_page_start/MAX_MENU_NUMBER_PER_PAGE)+1, total_page);
 		set_screen_xy(x, y);
 		write_string_with_color(buf, 0);
 	}

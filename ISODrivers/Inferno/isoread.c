@@ -511,7 +511,7 @@ static int refresh_cso_index(u32 size, u32 offset) {
 			idx_size = CISO_IDX_MAX_ENTRIES * 4;
 		}
 
-		int ret = read_raw_data(g_cso_idx_cache, idx_size, starting_block * 4 + 24);
+		int ret = read_raw_data((u8 *)g_cso_idx_cache, idx_size, starting_block * 4 + 24);
 		if(ret < 0) {
 		    return ret;
 		}

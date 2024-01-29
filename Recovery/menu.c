@@ -772,16 +772,17 @@ static s16 g_xmb_clock_number, g_game_clock_number;
 static int display_xmb(struct MenuEntry* entry, char *buf, int size)
 {
 	int cpu, bus;
+	char msg[32];
 
 	cpu = get_cpu_freq(g_xmb_clock_number);
 	bus = get_bus_freq(g_xmb_clock_number);
 
-	sprintf(buf, "%s:", g_messages[XMB_CPU_BUS]);
+	snprintf(msg, sizeof(msg), "%s:", g_messages[XMB_CPU_BUS]);
 
 	if(cpu == 0 || bus == 0) {
-		sprintf(buf, "%-40s %s/%s", buf, g_messages[DEFAULT], g_messages[DEFAULT]);
+		sprintf(buf, "%-40s %s/%s", msg, g_messages[DEFAULT], g_messages[DEFAULT]);
 	} else {
-		sprintf(buf, "%-40s %d/%d", buf, cpu, bus);
+		sprintf(buf, "%-40s %d/%d", msg, cpu, bus);
 	}
 
 	return 0;
@@ -790,16 +791,17 @@ static int display_xmb(struct MenuEntry* entry, char *buf, int size)
 static int display_game(struct MenuEntry* entry, char *buf, int size)
 {
 	int cpu, bus;
+	char msg[32];
 
 	cpu = get_cpu_freq(g_game_clock_number);
 	bus = get_bus_freq(g_game_clock_number);
 
-	sprintf(buf, "%s:", g_messages[GAME_CPU_BUS]);
+	snprintf(msg, sizeof(msg), "%s:", g_messages[GAME_CPU_BUS]);
 
 	if(cpu == 0 || bus == 0) {
-		sprintf(buf, "%-40s %s/%s", buf, g_messages[DEFAULT], g_messages[DEFAULT]);
+		sprintf(buf, "%-40s %s/%s", msg, g_messages[DEFAULT], g_messages[DEFAULT]);
 	} else {
-		sprintf(buf, "%-40s %d/%d", buf, cpu, bus);
+		sprintf(buf, "%-40s %d/%d", msg, cpu, bus);
 	}
 
 	return 0;

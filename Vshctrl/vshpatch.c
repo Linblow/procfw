@@ -278,7 +278,7 @@ static int check_valid_version_txt(const void *buf, int size)
 static void patch_sysconf_plugin_module(SceModule2 *mod)
 {
 	void *p;
-	char str[30];
+	char str[38];
 	u32 text_addr;
 	u32 minor_version;
 

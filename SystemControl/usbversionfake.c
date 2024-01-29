@@ -34,6 +34,11 @@
 static char g_version_buf[5];
 static char g_cur_version_buf[5];
 
+static inline int _isdigit(int c)
+{
+	return (unsigned)c-'0' < 10;
+}
+
 static char *_strncpy(char * dst, const char * src, size_t num)
 {
 	printk("%s: %s %u\n", __func__, src, num);
@@ -71,7 +76,7 @@ static int load_usb_version_text(void)
 
 	sceIoClose(fd);
 	
-	if (!isdigit(g_version_buf[0]) || g_version_buf[1] != '.' || !isdigit(g_version_buf[2]) || !isdigit(g_version_buf[3])) {
+	if (!_isdigit(g_version_buf[0]) || g_version_buf[1] != '.' || !_isdigit(g_version_buf[2]) || !_isdigit(g_version_buf[3])) {
 		return -2;
 	}
 

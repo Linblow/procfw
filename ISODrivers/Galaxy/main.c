@@ -418,7 +418,7 @@ int read_cso_sector(u8 *addr, int sector)
 	if(!lz4_compressed) {
 		ret = sceKernelDeflateDecompress(addr, ISO_SECTOR_SIZE, g_ciso_dec_buf + offset - g_ciso_dec_buf_offset, 0);
 	} else {
-		ret = LZ4_decompress_fast(g_ciso_dec_buf + offset - g_ciso_dec_buf_offset, addr, ISO_SECTOR_SIZE);
+		ret = LZ4_decompress_fast(g_ciso_dec_buf + offset - g_ciso_dec_buf_offset, (char *)addr, ISO_SECTOR_SIZE);
 		if(ret < 0) {
 			ret = -20;
 			printk("%s: -> %d\n", __func__, ret);

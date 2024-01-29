@@ -602,7 +602,7 @@ int module_start(SceSize args, void *argp)
 	SceUID fpl, fd;
 	u8 *outdata;
 	int i;
-	char dev[11];	
+	char dev[16];	
 	
 	strcpy(dev, "lflash0:0,0");
 	

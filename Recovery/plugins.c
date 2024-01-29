@@ -300,6 +300,7 @@ static int display_callback(struct MenuEntry* entry, char *buf, int size)
 	struct Plugin *plugin = (struct Plugin *)entry->arg;
 	const char *name;
 	char fmt[20];
+	char formattedName[256];
 
 	name = strrchr(plugin->name, '/');
 
@@ -310,8 +311,8 @@ static int display_callback(struct MenuEntry* entry, char *buf, int size)
 	}
 
 	sprintf(fmt, "%%.%ds [%%s]", 48 - 3 - strlen(get_plugin_name(plugin->type)));
-	sprintf(buf, fmt, name, get_plugin_name(plugin->type));
-	sprintf(buf, "%-48s %-11s", buf, get_bool_name(plugin->enabled));
+	snprintf(formattedName, sizeof(formattedName), fmt, name, get_plugin_name(plugin->type));
+	sprintf(buf, "%-48s %-11s", formattedName, get_bool_name(plugin->enabled));
 
 	return 0;
 }
